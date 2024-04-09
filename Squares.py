@@ -28,6 +28,7 @@ def contains_selectable_piece(position):
             return True
     return False
 
+#Draws all elements that are not None in piece_positions
 def draw_pieces():
     #Black Pieces
     for array in piece_positions:
@@ -35,7 +36,7 @@ def draw_pieces():
             if piece != None:
                 piece.draw()
 
-#redraws square moved to and square moved from
+#redraws source and destination squars
 def redraw_squares(source, dest):
     piece = piece_positions[dest[1]][dest[0]]
 
@@ -45,7 +46,8 @@ def redraw_squares(source, dest):
     #redraw piece2
     if piece != None:
         piece.draw()
-
+#updates the source and destination pieces. Redraws squares underneath pieces
+#using helper function redraw_squares
 def update_squares(source, dest, piece):
     if piece_positions[dest[1]][dest[0]] == None:
         #change piece's x and y coords
