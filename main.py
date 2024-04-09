@@ -1,4 +1,3 @@
-#CURRENTLY WORKING WITH BOARD.PY
 import pygame
 import Board as b
 import Squares as squares
