@@ -37,7 +37,7 @@ def draw_pieces():
                 piece.draw()
 
 #redraws source and destination squars
-def redraw_squares(source, dest):
+def __redraw_squares(source, dest):
     piece = piece_positions[dest[1]][dest[0]]
 
     b.draw_single_square(source)
@@ -65,4 +65,4 @@ def update_squares(source, dest, piece):
 
         
     #redraw the current squares
-    redraw_squares(source, dest)
+    __redraw_squares(source, dest)
