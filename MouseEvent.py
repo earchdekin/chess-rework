@@ -32,7 +32,7 @@ def handle_click(mouse_pos):
     if g.selected_piece == None or g.selected_piece.color == g.curr_turn:
         if square.contains_selectable_piece(current_pos): #if square contains selectable piece, global var selected_piece = current_pos
             g.selected_piece = square.piece_positions[y][x]
-            print(g.selected_piece.piece + " selected")
+            print(g.selected_piece.piece + " Selected")
         else: 
             #check if legal move for current selected piece if one selected
             if g.selected_piece != None:
