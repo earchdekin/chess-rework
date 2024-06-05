@@ -21,7 +21,6 @@ def contains_selectable_piece(position):
     x = position[0]
     y = position[1]
     piece = piece_positions[y][x]
-    print(x, y)
     if piece != None:
         #if position is the correct color for turn
         if piece.color == g.curr_turn:

@@ -45,5 +45,8 @@ def handle_click(mouse_pos):
                         g.curr_turn = "B"
                     else:
                         g.curr_turn = "W"
+                else:
+                    print(g.selected_piece.piece + " Deselected")
+                    g.selected_piece = None
 
     
