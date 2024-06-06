@@ -13,7 +13,7 @@ WINDOW_WIDTH, WINDOW_HEIGHT = (600, 600)
 #THIS OFFSET ASSUMES WINDOW WIDTH AND HEIGHT ARE BOTH > 600
 GAME_X_OFFSET, GAME_Y_OFFSET = ((WINDOW_WIDTH / 2) - (WIDTH / 2), (WINDOW_HEIGHT / 2) - (HEIGHT / 2))
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
+screen = pygame.display.set_mode(size=(WIDTH, HEIGHT), flags=(pygame.SCALED | pygame.RESIZABLE))
 clock = pygame.time.Clock()
 
 selected_piece = None

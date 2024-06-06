@@ -14,6 +14,7 @@ def main():
     
 
     while running:
+        
         for event in g.pygame.event.get():
             if event.type == g.pygame.QUIT:
                 running = False
