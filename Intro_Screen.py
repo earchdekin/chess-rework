@@ -7,7 +7,7 @@ class Font():
 
 intro_font = Font("Coffee_Fills", "fonts/CoffeeFills.ttf")
 
-intro_font = g.pygame.font.Font(intro_font.file_path, 30)
+intro_font = g.pygame.font.Font(intro_font.file_path, 50)
 
 
 

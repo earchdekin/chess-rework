@@ -8,6 +8,9 @@ import MouseEvent as me
 def main():
     running = True
 
+    #TODO: DELETE WHEN INTRO_SCREEN HAS BEEN IMPLEMENTED
+    g.game_menu = False
+
     #Draw Pieces outside of loop and only update when need be (e.g. mouse is clicked)
     b.draw()
     squares.draw_pieces()

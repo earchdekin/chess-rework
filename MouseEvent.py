@@ -21,32 +21,43 @@ def get_quadrant(mouse_pos):
     return (rX, rY)
 
 def handle_click(mouse_pos):
-    #current position
-    current_pos = get_quadrant(mouse_pos)
-    x = current_pos[0]
-    y = current_pos[1]
 
-    #So far, if there are no selected pieces or the previous selected piece has the same color as the current turn,
-    #check if the square has a selectable piece of the same color as curr_turn
-    #if the square is empty or returns false, check if legal move for current selected piece
-    if g.selected_piece == None or g.selected_piece.color == g.curr_turn:
-        if square.contains_selectable_piece(current_pos): #if square contains selectable piece, global var selected_piece = current_pos
-            g.selected_piece = square.piece_positions[y][x]
-            print(g.selected_piece.piece + " Selected")
-        else: 
-            #check if legal move for current selected piece if one selected
-            if g.selected_piece != None:
-                if g.selected_piece.is_legal_move(current_pos):
-                    source = (g.selected_piece.x, g.selected_piece.y)
-                    #Update numbers on piece
-                    square.update_squares(source, current_pos, g.selected_piece)
-                    g.selected_piece = None
-                    if g.curr_turn == "W":
-                        g.curr_turn = "B"
+    #If game is not in the menu
+    if g.game_menu == True:
+        #Check for button press
+        #TODO:
+        #get button boundaries. 
+        """
+        Perhaps create another class for a button or function for each button to handle click. 
+        """
+        z = 1
+    else:    
+        #current position
+        current_pos = get_quadrant(mouse_pos)
+        x = current_pos[0]
+        y = current_pos[1]
+
+        #So far, if there are no selected pieces or the previous selected piece has the same color as the current turn,
+        #check if the square has a selectable piece of the same color as curr_turn
+        #if the square is empty or returns false, check if legal move for current selected piece
+        if g.selected_piece == None or g.selected_piece.color == g.curr_turn:
+            if square.contains_selectable_piece(current_pos): #if square contains selectable piece, global var selected_piece = current_pos
+                g.selected_piece = square.piece_positions[y][x]
+                print(g.selected_piece.piece + " Selected")
+            else: 
+                #check if legal move for current selected piece if one selected
+                if g.selected_piece != None:
+                    if g.selected_piece.is_legal_move(current_pos):
+                        source = (g.selected_piece.x, g.selected_piece.y)
+                        #Update numbers on piece
+                        square.update_squares(source, current_pos, g.selected_piece)
+                        g.selected_piece = None
+                        if g.curr_turn == "W":
+                            g.curr_turn = "B"
+                        else:
+                            g.curr_turn = "W"
                     else:
-                        g.curr_turn = "W"
-                else:
-                    print(g.selected_piece.piece + " Deselected")
-                    g.selected_piece = None
+                        print(g.selected_piece.piece + " Deselected")
+                        g.selected_piece = None
 
     
