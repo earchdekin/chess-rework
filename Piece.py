@@ -3,11 +3,12 @@ import Globals as g
 import Squares as squares
 
 class Piece:
-    def __init__(self, piece, x, y, color) -> None:
+    def __init__(self, piece, x, y, color, value) -> None:
         self.piece = piece
         self.x = x
         self.y = y
         self.color = color
+        self.value = value
 
     #draws the png of the piece onto the screen
     def draw(self):
@@ -27,7 +28,7 @@ class Piece:
 
 class Rook(Piece):
     def __init__(self, x, y, color):
-        super().__init__("Rook", x, y, color)
+        super().__init__("Rook", x, y, color, 5)
     
     def is_legal_move(self, pos):
         if self.x == pos[0] and self.y != pos[1] or self.x != pos[0] and self.y == pos[1]:
@@ -81,7 +82,7 @@ class Rook(Piece):
     
 class Knight(Piece):
     def __init__(self, x, y, color):
-        super().__init__("Knight", x, y, color)
+        super().__init__("Knight", x, y, color, 3)
 
     def is_legal_move(self, pos):
         newX = pos[0]
@@ -96,7 +97,7 @@ class Knight(Piece):
 
 class Bishop(Piece):
     def __init__(self, x, y, color) -> None:
-        super().__init__("Bishop", int(x), int(y), color)
+        super().__init__("Bishop", int(x), int(y), color, 3)
     
     def is_legal_move(self, pos):
         newX = pos[0]
@@ -148,7 +149,7 @@ class Bishop(Piece):
 
 class Queen(Bishop, Rook):
     def __init__(self, x, y, color) -> None:
-        Piece.__init__(self, "Queen", x, y, color)
+        Piece.__init__(self, "Queen", x, y, color, 9)
     
     def is_legal_move(self, pos):
         if Bishop.is_legal_move(self, pos):
@@ -159,7 +160,7 @@ class Queen(Bishop, Rook):
 
 class King(Piece):
     def __init__(self, x, y, color) -> None:
-        super().__init__("King", x, y, color)
+        super().__init__("King", x, y, color, 1000)
     
     def is_legal_move(self, pos):
         newX = pos[0]
@@ -171,7 +172,7 @@ class King(Piece):
 
 class Pawn(Piece):
     def __init__(self, x, y, color):
-        super().__init__("Pawn", x, y, color)
+        super().__init__("Pawn", x, y, color, 1)
         self.is_first_move = True
 
     def is_legal_move(self, pos):
