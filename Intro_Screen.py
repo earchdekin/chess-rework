@@ -1,4 +1,5 @@
 import Globals as g
+from Button import CenteredButton
 
 class Font():
     def __init__(self, name, path):
@@ -31,6 +32,10 @@ def run_menu_screen():
     
     background = g.pygame.Rect(0, 0, g.WINDOW_WIDTH, g.WINDOW_HEIGHT)
     g.pygame.draw.rect(g.screen, "skyblue1", background)
+
+    play_button = CenteredButton(g.WIDTH / 2, g.HEIGHT - 200, 100, 50, "deepskyblue4")
+    play_button.draw(g.screen)
+
     title = intro_font.render("Welcome!", True, "black")
     title_pos = title.get_rect(centerx=g.WIDTH / 2, y=10)
     g.screen.blit(title, title_pos)
