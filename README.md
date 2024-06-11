@@ -1,4 +1,8 @@
 # chess-rework
+## Requirements:
+- Python 3.9
+- pygame
+
 Reworking a chess game I made in the summer with the understanding of OOP principles
 
 This was more of a personal project that I wanted to finally finish after learning some new techniques to coding in class.
