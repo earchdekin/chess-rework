@@ -20,17 +20,19 @@ def get_quadrant(mouse_pos):
         rY = int(y / b.square_size_y)
     return (rX, rY)
 
-def handle_click(mouse_pos):
+def handle_click(mouse_pos, buttons=[]):
 
     #If game is not in the menu
     if g.game_menu == True:
         #Check for button press
         #TODO:
-        #get button boundaries. 
-        """
-        Perhaps create another class for a button or function for each button to handle click. 
-        """
-        z = 1
+        # if button is pressed, go to button's link
+        for button in buttons:
+            if button.mouse_is_in_boundary(mouse_pos):
+                #THIS DOES NOT WORK - check Button.py mouse_is_in_boundary?
+                print("Button Pressed")
+                button.pressed()
+
     else:    
         #current position
         current_pos = get_quadrant(mouse_pos)

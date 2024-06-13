@@ -24,6 +24,9 @@ class Button():
                 return True
         return False
     
+    def pressed(self):
+        print("I have been pressed")
+    
     #Changes color AND redraws button
     def change_color(self, color):
         self.color = color
