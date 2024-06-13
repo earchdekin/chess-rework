@@ -12,6 +12,7 @@ class Button():
         self.color = color
         self.x = x
         self.button = g.pygame.Rect(x, y, width, height)
+        self.pressed = False
 
 
     #Check if the mouse position is within the correct boundary
@@ -20,13 +21,14 @@ class Button():
         x = position[0]
         y = position[1]
         if x >= self.x and y >= self.y:
-            if x < self.w and y < self.h:
+            if x < self.w + self.x and y < self.h + self.y:
                 return True
         return False
     
-    def pressed(self):
-        print("I have been pressed")
-    
+    def function(self, function=None):
+        if function == None:
+            print("Pressed")
+        
     #Changes color AND redraws button
     def change_color(self, color):
         self.color = color

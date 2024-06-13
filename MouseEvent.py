@@ -27,11 +27,10 @@ def handle_click(mouse_pos, buttons=[]):
         #Check for button press
         #TODO:
         # if button is pressed, go to button's link
+        #probably don't want a loop for this now that I think about it
         for button in buttons:
             if button.mouse_is_in_boundary(mouse_pos):
-                #THIS DOES NOT WORK - check Button.py mouse_is_in_boundary?
-                print("Button Pressed")
-                button.pressed()
+                button.function()
 
     else:    
         #current position
